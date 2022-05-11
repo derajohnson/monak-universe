@@ -170,19 +170,20 @@ const Hero = () => {
             </motion.div>
             <Box alignSelf="center">
               <Box display={{base: 'block', lg: 'none'}}>
-              <Text textAlign="center" px="16" my="5">
+              <Text textAlign="center" px={{base: '4', lg:'16'}} my="5">
                 Enter your email to get NFTs, latests releases and exclusive content.
               </Text>
               <form>
                 <Center>
                 <InputGroup size="md" w='80%'>
                   <Input
-                    pr="4.5rem"
+                    pr="6.5rem"
                     type="email"
                     placeholder="Email Address"
                     required
                     borderRadius="full"
                     bg='rgba(96, 96, 96, 0.5)'
+
                   />
                   <InputRightElement width="6.5rem">
                     <Button
@@ -202,15 +203,16 @@ const Hero = () => {
                
               </form>
                 <Center>
-                <Link
-                  href='mailto:monak.universe@gmail.com?subject=Booking Request'
+                  <Button
+                    px="20"
+                    py="6"
+                    mt="4"
                     textDecoration="underline"
-                    my='10'
-                    px='5'
-                    py='2'
+                    border="none"
+                    bg="transparent"
                   >
                     BOOKING REQUEST
-                  </Link>
+                  </Button>
 
                 </Center>
               </Box>
@@ -219,7 +221,7 @@ const Hero = () => {
         </Box>
 
       </Flex>
-      <Center w="100%" display={{base: 'block', lg: 'none'}} mt={{base:'14', sm:'24'}} mb="5">
+      <Center w="100%" display={{base: 'block', lg: 'none'}} mt={{base:'20', sm:'40', md:'56'}} mb="5">
         <Grid templateColumns="repeat(3, 1fr)" gap={6}>
           <GridItem>
             <Center>
