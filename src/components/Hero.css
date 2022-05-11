@@ -1,0 +1,14 @@
+.fa-spotify:before, .fa-music:before, .fa-soundcloud:before, .fa-instagram:before, .fa-discord:before, .fa-twitter:before, .brand-name {
+    background: linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%);
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+.bookings {
+    background: linear-gradient(90.54deg, rgba(255, 204, 250, 0.98) -16.77%, #EBFDFF 43.34%, #B499FF 110.18%) !important;
+   
+}
+
+.bookings:hover {
+    background: linear-gradient(70.54deg, rgba(255, 204, 250, 0.98) -2.77%, #EBFDFF 55.34%, #B499FF 80.18%) !important;
+}

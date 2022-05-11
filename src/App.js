@@ -1,24 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {Box} from '@chakra-ui/react'
+import Hero from './components/Hero';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box h={{base: 'auto', lg: '100vh'}} bgColor='#0D010F' color='whiteAlpha.900' fontFamily="'Inter', sans-serif" py='7' px='10'>
+     <Hero />
+    </Box>
   );
 }
 
