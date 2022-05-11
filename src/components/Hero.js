@@ -203,16 +203,15 @@ const Hero = () => {
                
               </form>
                 <Center>
-                  <Button
-                    px="20"
-                    py="6"
-                    mt="4"
+                <Link
+                  href='mailto:monak.universe@gmail.com?subject=Booking Request'
                     textDecoration="underline"
-                    border="none"
-                    bg="transparent"
+                    my='10'
+                    px='5'
+                    py='2'
                   >
                     BOOKING REQUEST
-                  </Button>
+                  </Link>
 
                 </Center>
               </Box>
