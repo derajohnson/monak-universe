@@ -5,14 +5,13 @@ import {
   Link,
   Center,
   Text,
-  Button,
   Image,
   Grid,
   GridItem,
-  Input,
-  InputRightElement,
-  InputGroup,
 } from '@chakra-ui/react';
+import Form from './Form';
+
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import {motion} from 'framer-motion';
 
 import Navbar from './Navbar';
@@ -104,49 +103,26 @@ const Hero = () => {
               >
                 MONAK UNIVERSE
               </Text>
-              <Box display={{base:'none', lg: 'block'}}>
-              <Text textAlign="center" px="16" my="5">
-                Enter your email to get NFTs, latests releases and exclusive content.
-              </Text>
-              <form>
-                <Center>
-                <InputGroup size="md" w='80%'>
-                  <Input
-                    pr="4.5rem"
-                    type="email"
-                    placeholder="Email Address"
-                    required
-                    borderRadius="full"
-                    bg='rgba(96, 96, 96, 0.5)'
-                  />
-                  <InputRightElement width="6.5rem">
-                    <Button
-                      h="1.75rem"
-                      size="md"
-                      className="bookings"
-                      color="blackAlpha.900"
-                      borderRadius="full"
-                      px='8'
-                      py='4'
-                    >
-                      Join
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                </Center>
-               
-              </form>
+              <Box display={{base: 'none', lg: 'block'}}>
+                <Text textAlign="center" px="16" my="5">
+                  Enter your email to get NFTs, latests releases and exclusive content.
+                </Text>
+                {/* form goes here */}
 
+                <MailchimpSubscribe
+                  url={`https://gmail.us17.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`}
+                  render={props => <Form {...props} />}
+                />
               </Box>
-              
+
               <Box display={{base: 'none', lg: 'block'}}>
                 <Center>
                   <Link
-                  href='mailto:monak.universe@gmail.com?subject=Booking Request'
+                    href="mailto:monak.universe@gmail.com?subject=Booking Request"
                     textDecoration="underline"
-                    my='10'
-                    px='5'
-                    py='2'
+                    my="10"
+                    px="5"
+                    py="2"
                   >
                     BOOKING REQUEST
                   </Link>
@@ -157,8 +133,7 @@ const Hero = () => {
 
             <motion.div
               initial={{y: -50}}
-              animate={{y: 40 }}
-
+              animate={{y: 40}}
               transition={{
                 repeat: Infinity,
                 repeatType: 'reverse',
@@ -170,45 +145,20 @@ const Hero = () => {
             </motion.div>
             <Box alignSelf="center">
               <Box display={{base: 'block', lg: 'none'}}>
-              <Text textAlign="center" px={{base: '4', lg:'16'}} my="5">
-                Enter your email to get NFTs, latests releases and exclusive content.
-              </Text>
-              <form>
+                <Text textAlign="center" px={{base: '4', lg: '16'}} my="5">
+                  Enter your email to get NFTs, latests releases and exclusive content.
+                </Text>
+                <MailchimpSubscribe
+                  url={`https://gmail.us17.list-manage.com/subscribe/post?u=${process.env.REACT_APP_MAILCHIMP_U}&id=${process.env.REACT_APP_MAILCHIMP_ID}`}
+                  render={props => <Form {...props} />}
+                />
                 <Center>
-                <InputGroup size="md" w='80%'>
-                  <Input
-                    pr="6.5rem"
-                    type="email"
-                    placeholder="Email Address"
-                    required
-                    borderRadius="full"
-                    bg='rgba(96, 96, 96, 0.5)'
-
-                  />
-                  <InputRightElement width="6.5rem">
-                    <Button
-                      h="1.75rem"
-                      size="md"
-                      className="bookings"
-                      color="blackAlpha.900"
-                      borderRadius="full"
-                      px='8'
-                      py='4'
-                    >
-                      Join
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                </Center>
-               
-              </form>
-                <Center>
-                <Link
-                  href='mailto:monak.universe@gmail.com?subject=Booking Request'
+                  <Link
+                    href="mailto:monak.universe@gmail.com?subject=Booking Request"
                     textDecoration="underline"
-                    my='10'
-                    px='5'
-                    py='2'
+                    my="10"
+                    px="5"
+                    py="2"
                   >
                     BOOKING REQUEST
                   </Link>
@@ -220,7 +170,12 @@ const Hero = () => {
         </Box>
 
       </Flex>
-      <Center w="100%" display={{base: 'block', lg: 'none'}} mt={{base:'20', sm:'40', md:'56'}} mb="5">
+      <Center
+        w="100%"
+        display={{base: 'block', lg: 'none'}}
+        mt={{base: '24', sm: '44', md: '56'}}
+        mb="5"
+      >
         <Grid templateColumns="repeat(3, 1fr)" gap={6}>
           <GridItem>
             <Center>
