@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Flex} from '@chakra-ui/react';
-import {Howl} from 'howler';
+import {Howl, Howler} from 'howler';
 
 const Navbar = () => {
   const musicTracks = [
     {
       name: 'Far Away',
-      src: '../songs/Far Away.mp3',
+      src: '/songs/Far Away.mp3',
     },
     {
       name: 'She Says',
-      src: '../songs/She Says.mp3',
+      src: '/songs/She Says.mp3',
     },
     {
       name: 'So Long',
-      src: '../songs/So Long.mp3',
+      src: '/songs/So Long.mp3',
     },
   ];
 
@@ -27,20 +27,43 @@ const Navbar = () => {
   };
 
   const handleClickNext = () => {
+    sound.stop()
     setTrackIndex (
       currentTrack =>
         currentTrack < musicTracks.length - 1 ? currentTrack + 1 : 0
     );
+    let soundTwo = new Howl ({
+      src: [musicTracks[trackIndex].src],
+      autoplay: true,
+      loop: true,
+      onend: function () {
+        handleClickNext ();
+      },
+      onplayerror: function(){
+        sound.once('unlock', function(){
+          sound.play();
+        })
+      }
+    });
+
+    soundTwo.play()
+  
   };
 
   let sound = new Howl ({
-    src: musicTracks[trackIndex].src,
+    src: [musicTracks[trackIndex].src],
     autoplay: true,
     loop: true,
     onend: function () {
       handleClickNext ();
     },
+    onplayerror: function(){
+      sound.once('unlock', function(){
+        sound.play();
+      })
+    }
   });
+
 
   useEffect (() => {
     window.addEventListener ('load', () => {
