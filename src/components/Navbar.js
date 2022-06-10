@@ -1,88 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Flex} from '@chakra-ui/react';
 import {Howl, Howler} from 'howler';
-
+import AudioPlayer from './AudioPlayer';
+import tracks from './track';
 const Navbar = () => {
-  const musicTracks = [
-    {
-      name: 'Far Away',
-      src: '/songs/Far Away.mp3',
-    },
-    {
-      name: 'She Says',
-      src: '/songs/She Says.mp3',
-    },
-    {
-      name: 'So Long',
-      src: '/songs/So Long.mp3',
-    },
-  ];
-
-  const [trackIndex, setTrackIndex] = useState (0);
-  const handleClickPrevious = () => {
-    setTrackIndex (
-      currentTrack =>
-        currentTrack === 0 ? musicTracks.length - 1 : currentTrack - 1
-    );
-  };
-
-  const handleClickNext = () => {
-    sound.stop()
-    setTrackIndex (
-      currentTrack =>
-        currentTrack < musicTracks.length - 1 ? currentTrack + 1 : 0
-    );
-    let soundTwo = new Howl ({
-      src: [musicTracks[trackIndex].src],
-      autoplay: true,
-      loop: true,
-      onend: function () {
-        handleClickNext ();
-      },
-      onplayerror: function(){
-        sound.once('unlock', function(){
-          sound.play();
-        })
-      }
-    });
-
-    soundTwo.play()
-  
-  };
-
-  let sound = new Howl ({
-    src: [musicTracks[trackIndex].src],
-    autoplay: true,
-    loop: true,
-    onend: function () {
-      handleClickNext ();
-    },
-    onplayerror: function(){
-      sound.once('unlock', function(){
-        sound.play();
-      })
-    }
-  });
-
-
-  useEffect (() => {
-    window.addEventListener ('load', () => {
-      sound.play ();
-    });
-  }, []);
 
   return (
     <Box>
       <Flex justifyContent="flex-end">
         <Box mr="8">
           <Flex>
-            <Box onClick={handleClickPrevious} cursor="pointer">
-              <i className="fa-solid fa-backward-step fa-lg" />
-            </Box>
-            <Box mx="6">{musicTracks[trackIndex].name}</Box>
-            <Box onClick={handleClickNext} cursor="pointer">
-              <i className="fa-solid fa-forward-step fa-lg" />
-            </Box>
+           
+      <AudioPlayer tracks={tracks} />
+
           </Flex>
 
         </Box>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Box} from '@chakra-ui/react';
 import Hero from './components/Hero';
 
+
 function App () {
   return (
     <Box
@@ -14,6 +15,7 @@ function App () {
       px="10"
     >
       <Hero />
+
     </Box>
   );
 }

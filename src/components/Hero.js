@@ -86,6 +86,7 @@ const Hero = () => {
           <Box>
             <Navbar />
 
+
           </Box>
           <Flex
             justifyContent="space-between"
